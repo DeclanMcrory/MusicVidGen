@@ -1,12 +1,14 @@
-# Sweep AI turns bug fixes & feature requests into code changes (https://sweep.dev)
-# For details on our config file, check out our docs at https://docs.sweep.dev
+gha_enabled: True
+branch: main
+blocked_dirs: ["sweepai/core/prompts.py", "sweep_chat/cypress/e2e/spec.cy.ts"]
+draft: False
+description: "sweepai/sweep is a python 3.10 project. The main api endpoints are in sweepai/api.py. All imports should be global (like `import sweepai.utils.github_utils`). Write unit tests in the same directory as their corresponding code, i.e. sweepai/api_test.py tests sweepai/api.py. We use pytest for tests. Never use wildcard imports. Use list and tuple for typing instead of typing.List and typing.Tuple."
 
-# If you use this be sure to frequently sync your default branch(main, master) to dev.
-branch: 'main'
-# If you want to enable GitHub Actions for Sweep, set this to true.
-gha_enabled: true
-# This is the description of your project. It will be used by sweep when creating PRs. You can tell Sweep what's unique about your project, what frameworks you use, or anything else you want.
-# Here's an example: sweepai/sweep is a python project. The main api endpoints are in sweepai/api.py. Write code that adheres to PEP8.
-description: ''
-
-# Default Values: https://github.com/sweepai/sweep/blob/main/sweep.yaml
+rules:
+  - "We should use loguru for error logging. If the log is inside an exception, use logger.exception to add tracebacks, where logger is imported from loguru. Use f-strings for string formatting in logger calls (e.g. logger.info(f'Hello {name}') instead of logger.info('Hello {name}', name=name))."
+  - "There should be no debug log or print statements in production code."
+  - "All functions should have parameters and output annotated with type hints. Use list, tuple and dict instead of typing.List, typing.Tuple and typing.dict."
+  - "Leftover TODOs in the code should be handled."
+  - "All new business logic should have corresponding unit tests in the same directory. For example, sweepai/api_test.py tests sweepai/api.py. Use unittest and unittest.mock as required."
+  - "Any clearly inefficient or repeated code should be optimized or refactored."
+  - "Remove any comments before code that are obvious. For example `# this prints hello world; print('hello world')`."
