@@ -1,29 +1,35 @@
-Music Video Generator
+# MusicVidGen
 
-A music video generation tool using deep learning.
+A web application that generates music videos from audio files using deep learning.
 
-## Overview
+## Features
 
-This project includes the necessary files to train and generate music videos based on audio features, character profiles, and video elements.
+- Upload audio files (MP3, WAV)
+- Generate unique music videos based on audio patterns
+- View and download generated videos
 
-## Files
+## Installation
 
-- `main.py`: Main entry point for the project.
-- `train.py`: Script to train the model.
-- `config.json`: Configuration file for the project.
-- `web_interface/`: Contains the web interface files (`index.html`, `styles.css`).
-- `utils/`: Utility functions (`random_generator.py`).
-- `lyrics_generator/`: Lyrics generation script (`lyrics_generator.py`).
-- `models/`: Model definition (`music_vid_gen.py`).
-- `data/`: Dataset class (`music_vid_synth_dataset.py`).
-
-## How to Use
-
-1. **Training the Model**:
-   ```sh
-   python train.py
+1. Clone the repository:
+   ```
+   git clone https://github.com/DeclanMcrory/MusicVidGen.git
+   cd MusicVidGen
    ```
 
-2. **Generating a Music Video**:
-   - Open `web_interface/index.html` in a web browser.
-   - Click the "
+2. Create a virtual environment and install dependencies:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. Run the application:
+   ```
+   python app.py
+   ```
+
+4. Open your browser and navigate to `http://localhost:5000`
+
+## Docker Deployment
+
+You can also run the application using Docker:
